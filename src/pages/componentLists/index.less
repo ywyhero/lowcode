@@ -1,0 +1,41 @@
+.component{
+    background: #fff;
+    width: 176px;
+    padding: 0 12px;
+    box-sizing: content-box;
+    height: 100%;
+    .component-lists{
+        display: flex;
+        align-items: center;
+    }
+    .component-list{
+        position: relative;
+        text-align: center;
+        display: inline-block;
+        width: 50%;
+        height: 88px;
+        font-size: 12px;
+        margin-bottom: 8px;
+        cursor: move;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .component-list-icon{
+            width: 32px;
+            height: 32px;
+            background-size: cover;
+            background-position: 0 0;
+        }
+    }
+    .component-list:hover{
+        background: #155bd4;
+        border-radius: 2px;
+        font-weight: 700;
+        color: white;
+        .component-list-icon{
+            background-position: 0 32px;
+        }
+    }
+}
