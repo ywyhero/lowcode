@@ -6,6 +6,7 @@ import ComponentLists from "./componentLists"
 import Editor from "./editor";
 import './index.less'
 import 'antd/dist/antd.css';
+// import 'antd-mobile-v2/dist/antd-mobile.css';
 function Main() {
     const [currentIndex, setCurrentIndex] = useState()
     const [selectComponents, setSelectComponents] = useState([])

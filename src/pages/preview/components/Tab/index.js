@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { Tabs } from "antd-mobile"
 import './index.less'
 function Tab({ item, setCurrentIndex, index }) {
     const handleSelect = useCallback(() => {
@@ -16,27 +17,30 @@ function Tab({ item, setCurrentIndex, index }) {
         return arr
     }, [item])
     const [activeId, setActiveId] = useState(1)
-    const handleTabChange = useCallback((itm) => {
-        setActiveId(itm.id)
-    }, [])
+    const [activeIndex, setActiveIndex] = useState(0)
+    const handleTabChange = useCallback((key) => {
+        setActiveId(key)
+        const index = tabs.findIndex(v => v.id === Number(key))
+        console.log(index, tabs, key)
+        if (index > -1) {
+            setActiveIndex(index)
+        }
+    }, [tabs])
     return (
         <div
             className='tab-container'
             onClick={handleSelect}
         >
-            <div className="tab-lists">
+            <Tabs onChange={handleTabChange} defaultActiveKey={activeId}>
                 {
                     tabs.map((itm) => {
                         return (
-                            <span
-                                onClick={() => handleTabChange(itm)}
-                                className={`tab-text ${itm.id === activeId ? 'active' : ''}`}>
-                                {itm.value}
-                            </span>
+                            <Tabs.Tab title={itm.value} key={itm.id}></Tabs.Tab>
                         )
                     })
                 }
-            </div>
+            </Tabs>
+            <img className="tab-img" src={item.imgs[activeIndex]} />
         </div>
     )
 }

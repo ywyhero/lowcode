@@ -32,6 +32,7 @@ const components = [
         type: 'tab',
         icon: 'https://img01.yzcdn.cn/upload_files/2022/06/17/FjAs6eTmbK_4lQRI3GYXu97Fj_B_.png',
         value: ['tab1', 'tab2'],
+        imgs: ['https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/ccb78c9dcec649d99d3accdf265d4a15.jpg', 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/acff8551572e4c888f0b73ddb62fc26a.jpg'],
         config: [
             {
                 label: 'Tab1文案',
