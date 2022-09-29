@@ -47,14 +47,14 @@ const components = [
     }
 ]
 function ComponentLists() {
-   
+
     return (
         <div className="component">
             <div className="component-lists">
                 {
-                    components.map((item) => {
+                    components.map((item, index) => {
                         return (
-                            <List key={item.id} item={item} />
+                            <List item={item} key={`component-${index}`}/>
                         )
                     })
                 }
