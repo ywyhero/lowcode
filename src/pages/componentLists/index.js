@@ -44,6 +44,26 @@ const components = [
                 type: 'input',
                 value: 'tab2'
             },
+            {
+                label: 'Tab1图片',
+                type: 'upload',
+                fileList: [{
+                    uid: '-1',
+                    name: 'image.png',
+                    status: 'done',
+                    url: 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/ccb78c9dcec649d99d3accdf265d4a15.jpg'
+                }]
+            },
+            {
+                label: 'Tab2图片',
+                type: 'upload',
+                fileList: [{
+                    uid: '-1',
+                    name: 'image.png',
+                    status: 'done',
+                    url: 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/acff8551572e4c888f0b73ddb62fc26a.jpg'
+                }]
+            },
         ]
     }
 ]
