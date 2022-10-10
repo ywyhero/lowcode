@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Input, Upload } from 'antd'
 function TabEditor({ currentIndex, selectComponents, setSelectComponents }) {
-    const onChange = ({ fileList: newFileList }, item) => {
-        item.fileList = newFileList.map((v) => ({
+    const onChange = ({ fileList: newFileList }, index, itm, idx) => {
+        console.log('newFileList', newFileList,selectComponents, index, itm, idx)
+        itm.fileList = newFileList.map((v) => ({
             ...v,
-            url: v.thumbUrl
+            url: v.response?.url
         }))
-        selectComponents
-        console.log(selectComponents)
+        selectComponents[currentIndex].imgs[idx] = newFileList[0]?.response?.url || ''
         setSelectComponents([...selectComponents])
     };
     const onPreview = async (file) => {
@@ -31,34 +31,34 @@ function TabEditor({ currentIndex, selectComponents, setSelectComponents }) {
                     return (
                         <>
                             {
-                                item.type === 'input' && (
-                                    <div className='editor-label' key={`tab-editor-${index}`}>
-                                        <span>{item.label}</span>
+                                item.type === 'text' && item.lists.map((itm, idx) => (
+                                    <div className='editor-label' key={`tab-editor-${idx}`}>
+                                        <span>{itm.label}</span>
                                         <Input
                                             placeholder='请输入内容'
-                                            value={item.value}
+                                            value={itm.value}
                                             onChange={(e) => {
                                                 const copyCards = JSON.parse(JSON.stringify(selectComponents))
-                                                copyCards[currentIndex].config[index].value = e.target.value
-                                                copyCards[currentIndex].value[index] = e.target.value
+                                                copyCards[currentIndex].config[index].lists[idx].value = e.target.value
+                                                copyCards[currentIndex].value[idx] = e.target.value
                                                 setSelectComponents(copyCards)
                                             }} />
                                     </div>
-                                ) ||
-                                item.type === 'upload' && (
-                                    <div className='editor-label' key={`tab-editor-${index}`}>
-                                        <span>{item.label}</span>
+                                ))  ||
+                                item.type === 'upload' && item.lists.map((itm, idx) => (
+                                    <div className='editor-label' key={`tab-editor-${idx}`}>
+                                        <span>{itm.label}</span>
                                         <Upload
                                             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                                             listType="picture-card"
-                                            fileList={item.fileList}
-                                            onChange={(e) => onChange(e, item)}
+                                            fileList={itm.fileList}
+                                            onChange={(e) => onChange(e, index, itm, idx)}
                                             onPreview={onPreview}
                                         >
-                                            {item.fileList.length < 1 && '+ Upload'}
+                                            {itm.fileList.length < 1 && '+ Upload'}
                                         </Upload>
                                     </div>
-                                )
+                                ))
                             }
                         </>
                     )

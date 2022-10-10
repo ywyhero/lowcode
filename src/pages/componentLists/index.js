@@ -10,21 +10,26 @@ const components = [
         value: '默认按钮',
         config: [
             {
-                label: '按钮文案',
-                type: 'input',
-                value: '默认按钮'
-            },
-            {
-                label: '字体大小',
-                type: 'inputNumber',
-                value: '14',
-                style: 'fontSize'
-            },
-            {
-                label: '圆角',
-                type: 'inputNumber',
-                value: '4',
-                style: 'borderRadius'
+                type: 'text',
+                lists: [
+                    {
+                        label: '按钮文案',
+                        type: 'input',
+                        value: '默认按钮'
+                    },
+                    {
+                        label: '字体大小',
+                        type: 'inputNumber',
+                        value: '14',
+                        style: 'fontSize'
+                    },
+                    {
+                        label: '圆角',
+                        type: 'inputNumber',
+                        value: '4',
+                        style: 'borderRadius'
+                    }
+                ]
             }
         ]
     }, {
@@ -35,35 +40,46 @@ const components = [
         imgs: ['https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/ccb78c9dcec649d99d3accdf265d4a15.jpg', 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/acff8551572e4c888f0b73ddb62fc26a.jpg'],
         config: [
             {
-                label: 'Tab1文案',
-                type: 'input',
-                value: 'tab1'
+                type: 'text',
+                lists: [
+                    {
+                        label: 'Tab1文案',
+                        type: 'input',
+                        value: 'tab1'
+                    },
+                    {
+                        label: 'Tab2文案',
+                        type: 'input',
+                        value: 'tab2'
+                    },
+                ]
             },
             {
-                label: 'Tab2文案',
-                type: 'input',
-                value: 'tab2'
-            },
-            {
-                label: 'Tab1图片',
                 type: 'upload',
-                fileList: [{
-                    uid: '-1',
-                    name: 'image.png',
-                    status: 'done',
-                    url: 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/ccb78c9dcec649d99d3accdf265d4a15.jpg'
-                }]
-            },
-            {
-                label: 'Tab2图片',
-                type: 'upload',
-                fileList: [{
-                    uid: '-1',
-                    name: 'image.png',
-                    status: 'done',
-                    url: 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/acff8551572e4c888f0b73ddb62fc26a.jpg'
-                }]
-            },
+                lists: [
+                    {
+                        label: 'Tab1图片',
+                        type: 'upload',
+                        fileList: [{
+                            uid: '-1',
+                            name: 'image.png',
+                            status: 'done',
+                            url: 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/ccb78c9dcec649d99d3accdf265d4a15.jpg'
+                        }]
+                    },
+                    {
+                        label: 'Tab2图片',
+                        type: 'upload',
+                        fileList: [{
+                            uid: '-1',
+                            name: 'image.png',
+                            status: 'done',
+                            url: 'https://image-c-dev.weimobwmc.com/qa-saas-wxbiz/acff8551572e4c888f0b73ddb62fc26a.jpg'
+                        }]
+                    },
+                ]
+            }
+           
         ]
     }
 ]
